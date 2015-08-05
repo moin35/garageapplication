@@ -23,6 +23,7 @@ Route::post('adminreg/{eid}','HomeController@adminregpost');
 
 //Admin Profile View Edit Delete Start
 Route::get('adminprofile/{eid}','HomeController@adminprofileget');
+Route::post('adminprofile/{eid}','HomeController@adminprofileupdatepost');
 //Admin Profile View Edit Delete End
 //Password Change Route start
 Route::get('changepass/{eid}','HomeController@changepassget');
@@ -32,3 +33,14 @@ Route::post('changepass/{eid}','HomeController@changepasspost');
 Route::get('header/{eid}','HomeController@headerget');
 Route::post('header/{eid}','HomeController@headerpost');
 //Header add Route End
+//ClientReg Route Start
+Route::get('reg','HomeController@regget');
+Route::post('reg','HomeController@regpost');
+//ClientReg Route End
+//Route AddTicket  Start
+Route::get('ticket/{eid}','ModelController@addticketget');
+Route::post('ticket/{eid}','ModelController@addticketpost');
+//Route AddTicket  End
+//Genarate New Ticket Route Start
+Route::get('viewticket','ModelController@viewticketget');
+//Genarate New Ticket Route End

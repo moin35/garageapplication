@@ -36,8 +36,14 @@
                             <p>
                                 Just sign in and we’ll send you on your way</p>
                                 @if(Session::get('saved'))
-        <h2 style="color:red">Wrong Email or Password !!</h2>
+                                <h2 style="color:red">Wrong Email or Password !!
+                                </h2>
+                                @endif
+                                
+            @if(Session::get('s'))
+        <h2 style="color:Green;">Registration successfull Please login !!</h2>
         @endif
+        
                         </div>
                     </div>
 
@@ -47,7 +53,7 @@
                         <div class="col-md-9">
                             <div class="input-icon right">
                                 <i class="fa fa-user"></i>
-                                {!!Form::text('email','',['class'=>'form-control','placeholder'=>'Email Address'])!!}<br>
+                                {!!Form::text('username','',['class'=>'form-control','placeholder'=>'Email Address','required'])!!}<br>
                                 </div>
                         </div>
                     </div>
@@ -57,7 +63,7 @@
                         <div class="col-md-9">
                             <div class="input-icon right">
                                 <i class="fa fa-lock"></i>
-                                {!!Form::password('pass',['class'=>'form-control','placeholder'=>'password'])!!}<br>
+                                {!!Form::password('pass',['class'=>'form-control','placeholder'=>'password','required'])!!}<br>
                                 </div>
                         </div>
                     </div>
@@ -68,7 +74,7 @@
                                     &nbsp;
                                 </div>
                                 <div class="col-lg-9">
-                                    <a href="Login.html" class="btn btn-default">Go back</a>&nbsp;&nbsp;
+                                    <a href="{{URL::to('reg')}}" class="btn btn-default">Sign Up</a>&nbsp;&nbsp;
                                     {!!Form::submit('Login',['class'=>'btn btn-default'])!!}<br>
                                 </div>
                             </div>

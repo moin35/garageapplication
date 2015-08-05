@@ -1,3 +1,10 @@
+@section('title')
+    Home
+@stop
+
+@section('body')
+
+@section('sidebarmenu')
 <!--BEGIN SIDEBAR MENU-->
             <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
                 data-position="right" class="navbar-default navbar-static-side">
@@ -65,3 +72,5 @@
             </div>
         </nav>
             <!--END SIDEBAR MENU-->
+@stop
+@stop

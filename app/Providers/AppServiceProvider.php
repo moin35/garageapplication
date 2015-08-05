@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Header;
+use App\Footer;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $hd=Header::where('eid','=',1)->first();
+        view()->share(['p'=>$hd]);
+        $ft=Footer::all()->first();
+        view()->share(['foot'=>$ft]);
     }
 
     /**

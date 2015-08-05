@@ -57,35 +57,7 @@ Registration
                <div class="input-icon right">                                                            <i class="fa fa-lock"></i>
                 Select an Image:{!!Form::file('image','',['class'=>'form-control','placeholder'=>'Select an Image','required'])!!}</div>
                 </div>
-
-
-                                                   <!-- <div class="form-group">
-                                                        <div class="input-icon right">
-                                                            <i class="fa fa-lock"></i>
-                                                        Confirm Password :{!!Form::password('password',['class'=>'form-control'])!!}</div>
-                                                    </div>
-                                                    <hr />
-                                                    
-                                                    <div class="form-group">
-                                                        <select class="form-control">
-                                                            <option>Gender</option>
-                                                            <option value="0">Male</option>
-                                                            <option value="1">Female</option>
-                                                            <option value="2">Other</option>
-                                                        </select></div>
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input tabindex="5" type="checkbox" />&nbsp; I want to receive news and special
-                                                                offers</label></div>
-                                                    </div>
-                                                    <div class="form-group mbn">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input tabindex="5" type="checkbox" />&nbsp; I agree with the Terms and Conditions</label></div>
-                                                    </div>
-                                                </div>-->
-                                                <div class="form-actions text-right pal">
+                                     <div class="form-actions text-right pal">
                                                     {!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}
                                                 </div>
                                              {!!Form::close()!!}

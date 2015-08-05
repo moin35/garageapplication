@@ -19,10 +19,6 @@ Profile OF {{Auth::user()->name}}
                 </div>
                 <!--END TITLE & BREADCRUMB PAGE-->
  <div class="col-lg-7">
-
-
-
-
                                 <div class="panel">
                                     <div class="panel-body">
                                         <div class="profile">
@@ -33,13 +29,51 @@ Profile OF {{Auth::user()->name}}
                                                     <p>
                                                         <h4><strong>Email Address:</strong> {{$adminprofile->email}}</h4>
                                                     </p>
-                                               <a href="{{URL::to('update/'.Auth::user()->eid)}}" class="btn btn-primary">Edit Record</a>
-                                 
+                                                                            
                                                 </div>
                                                 <div class="col-xs-12 col-sm-4 text-center">
                                                     <figure><img src="{{URL::to('/')}}/images/adminimage/{{$adminprofile->img}}" alt="" style="display: inline-block" class="img-responsive img-circle" width="200px" height="200px"  />
                                                 </figure>
                                                 </div>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+ <div class="col-lg-5">
+                  <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="profile">
+                                            <div style="margin-bottom: 15px" class="row">
+                                            {!! Form::open(['files'=>'true' ]) !!}
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <h4>Edit your Profile</h4>
+                                                    {!!Form::text('name',$adminprofile->name,
+                                                    ['class'=>'form-control',
+                                                    'placeholder'=>'Add your Company name',
+                                                    'required'])!!}<br>
+                                                    {!!Form::text('email',
+                                                    $adminprofile->email,
+                                                    ['class'=>'form-control',
+                                                    'placeholder'=>'Add your Company name',
+                                                    'required'])!!}<br>
+                                                    Select Fevicon:{!!Form::file('image',
+                                                    '',
+                                                    ['class'=>'form-control',
+                                                    'placeholder'=>'Select an Image',
+                                                    'required'])!!}     <br>               
+                                                </div>
+                                                <div class="col-xs-12 col-sm-4 text-center">
+                                                    <figure><img src="{{URL::to('/')}}/images/adminimage/{{$adminprofile->img}}" alt="" style="display: inline-block" class="img-responsive img-circle" width="200px" height="200px"  />
+                                                
+                                                </figure>
+
+                                                </div>
+                                                <div class="form-actions text-right pal">
+                {!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}
+            </div>
+                                                {!!Form::close()!!}
                                             </div>
                                            
                                         </div>
