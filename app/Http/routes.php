@@ -41,6 +41,13 @@ Route::post('reg','HomeController@regpost');
 Route::get('ticket/{eid}','ModelController@addticketget');
 Route::post('ticket/{eid}','ModelController@addticketpost');
 //Route AddTicket  End
-//Genarate New Ticket Route Start
-Route::get('viewticket','ModelController@viewticketget');
-//Genarate New Ticket Route End
+//Add CarModel info Route Start
+Route::get('addmodel','ModelController@addmodelget');
+Route::post('addmodel','ModelController@addmodelpost');
+//Add CarModel Route End
+//Route Generate Ticket Start
+Route::get('tktgenerate','ModelController@tktgenerateget');
+//Route Generate Ticket End
+
+Route::get('tk1','ModelController@tk1get');
+Route::post('tk1','ModelController@tk1post');

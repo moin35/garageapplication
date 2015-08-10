@@ -1,9 +1,8 @@
 @extends('layouts.master')
 @section('title')
-Add car Info Year & Brand
+Add car Info Car Model
 @stop
 @section('body')
-
 <!--BEGIN TITLE & BREADCRUMB PAGE-->
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
@@ -22,15 +21,15 @@ Add car Info Year & Brand
 <div class="page-content">
     <div class="panel panel-green">
         <div class="panel-heading">
-            Car Information form
+           Add Car Model Information According to Year
             
         @if(Session::get('year'))
         <h2 style="color:white;">All Ready Have This Year in Your DB !!</h2>
         @endif
-@if(Session::get('brand'))
-        <h2 style="color:white;">Opps All Ready Have This Brand in Your DB  !!</h2>
+@if(Session::get('car'))
+        <h2 style="color:white;">Opps All Ready Have This Model in Your DB  !!</h2>
         @endif
-@if(Session::get('saved'))
+@if(Session::get('showmsg'))
         <h2 style="color:white;">Information Added !!</h2>
         @endif
         </div>
@@ -40,19 +39,33 @@ Add car Info Year & Brand
                 <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!!Form::text('year','',['class'=>'form-control','placeholder'=>'Add Year Name'])!!}
+                        <script type="text/javascript">
+    $('#example-single-selected').multiselect();
+</script>
+<!-- Note the missing multiple attribute! -->
+<select id="example-single-selected" required="required" class="form-control" name="year">
+    <option value="-1" selected="selected">Select An Year</option>
+    @foreach($showyear as $r=>$t)
+    <option value="{{$r}}"=>{{$t}}</option>
+    @endforeach
+</select>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        {!!Form::text('brand_name','',['class'=>'form-control','placeholder'=>'Add Car Brand Name'])!!}
-                    </div>
-                </div>
-                <!--<div class="col-md-6">
-                    <div class="form-group">
-                        {!!Form::text('car_model_name','',['class'=>'form-control','placeholder'=>'Add Car Model Info','required'])!!}
-                    </div>
-                </div>-->
+<div class="col-md-6">
+<div class="form-group">
+<select id="example-single-selected" required="required" class="form-control" name="brand_name">
+    <option value="-1" selected="selected">Select An Brand Name</option>
+    @foreach($showbrand as $b=>$d)
+    <option value="{{$b}}"=>{{$d}}</option>
+    @endforeach
+</select>
+</div>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        {!!Form::text('car_model_name','',['class'=>'form-control','placeholder'=>'Add Car Model Info','required'])!!}
+    </div>
+</div>
                 </div>
             <div class="form-actions text-right pal">
                  {!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}

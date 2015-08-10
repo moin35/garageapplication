@@ -22,37 +22,59 @@
     <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/zabuto_calendar.min.css">
     <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/pace.css">
     <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/jquery.news-ticker.css">
-<link rel="shortcut icon" href="{{URL::to('/')}}/images/adminimage/{{$p->fevicon}}">
-<!-- External Information For Ticket List-->
- <link rel="stylesheet" href="docs/css/bootstrap-3.3.2.min.css" type="text/css">
-        <link rel="stylesheet" href="docs/css/bootstrap-example.css" type="text/css">
-        <link rel="stylesheet" href="docs/css/prettify.css" type="text/css">
-
-        <script type="text/javascript" src="docs/js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="docs/js/bootstrap-3.3.2.min.js"></script>
-        <script type="text/javascript" src="docs/js/prettify.js"></script>
-
-        <link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
-        <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
-        <script type="text/javascript" src="dist/js/bootstrap-multiselect-collapsible-groups.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                window.prettyPrint() && prettyPrint();
-            });
-        </script>
-<!-- External Information For Ticket List End-->
+    <link rel="shortcut icon" href="{{URL::to('/')}}/images/adminimage/{{Auth::user()->fevicon}}">
 
 
-</head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
 <body>
-    <div>
+   <div>
 
         <!--BEGIN BACK TO TOP-->
         <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
         <!--END BACK TO TOP-->
-        
-@yield('header')
+        <!--BEGIN TOPBAR-->
+        <div id="header-topbar-option-demo" class="page-header-topbar">
+            <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header ">
+                <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a id="logo" href="{{URL::to('/')}}" class="navbar-brand">
+                <span class="fa fa-rocket"></span>
+                <img alt="" src="{{URL::to('/')}}/images/adminimage/{{Auth::user()->company_logo}}" class="hidden-xs  img-circle" width="20" height ="20"/>
+                <span class="">{{Auth::user()->company_name}}</span>
+                <span style="display: none" class="logo-text-icon">µ</span>
+                </a>
+                </div>
+            <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+                
+                <form id="topbar-search" action="" method="" class="hidden-sm hidden-xs">
+                    <div class="input-icon right text-white"><a href="#"><i class="fa fa-search"></i></a><input type="text" placeholder="Search here..." class="form-control text-white"/></div>
+                </form>
+
+                <ul class="nav navbar navbar-top-links navbar-right mbn">
+                   
+                    <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img src="{{URL::to('/')}}/images/adminimage/{{Auth::user()->img}}" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">Hello {{Auth::user()->name}}</span>&nbsp;<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-user pull-right">
+                            <li><a href="{{URL::to('adminprofile/'.Auth::user()->eid)}}"><i class="fa fa-user"></i>My Profile</a></li>
+                            <li><a href="#"><i class="fa fa-calendar"></i>My Calendar</a></li>
+                            
+                    
+                            <li class="divider"></li>
+                            <li><a href="{{URL::to('changepass/'.Auth::user()->eid)}}"><i class="fa fa-lock"></i>Change password</a></li>
+                            <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i>Log Out</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+            </div>
+        </nav>
+            <!--BEGIN MODAL CONFIG PORTLET-->
+
     
         <!--END TOPBAR-->
         <div id="wrapper">
@@ -64,7 +86,7 @@
                 <ul id="side-menu" class="nav">
                     
                      <div class="clearfix"></div>
-                    <li class="active"><a href="{{URL::to('/')}}"><i class="fa fa-tachometer fa-fw">
+                    <li class="active"><a href="{{URL::to('dashboard')}}"><i class="fa fa-tachometer fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Dashboard</span></a></li>
                     <li><a href="{{URL::to('adminreg/'.Auth::user()->eid)}}"><i class="fa fa-desktop fa-fw">
@@ -75,6 +97,11 @@
                     <li><a href="{{URL::to('header/'.Auth::user()->eid)}}"><i class="fa fa-send-o fa-fw">
                         <div class="icon-bg bg-green"></div>
                     </i><span class="menu-title">Add Company Information</span></a>
+                       
+                    </li>
+                    <li><a href="{{URL::to('addmodel')}}"><i class="fa fa-send-o fa-fw">
+                        <div class="icon-bg bg-green"></div>
+                    </i><span class="menu-title">Add Model Information</span></a>
                        
                     </li>
                     <li><a href="{{URL::to('ticket/'.Auth::user()->eid)}}"><i class="fa fa-database fa-fw">
@@ -194,13 +221,17 @@
                 </div>
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
-                @yield('footer')
+                 <div id="footer" style="color:red;" align="right">
+                    <div class="copyright" >
+                        <a href="{{Auth::user()->link}}" >{{Auth::user()->year}} © {{Auth::user()->company_name}}</a></div>
+                </div>
                 
                 <!--END FOOTER-->
             </div>
             <!--END PAGE WRAPPER-->
         </div>
     </div>
+       
     <script src="{{URL::to('/')}}/script/jquery-1.10.2.min.js"></script>
     <script src="{{URL::to('/')}}/script/jquery-migrate-1.2.1.min.js"></script>
     <script src="{{URL::to('/')}}/script/jquery-ui.js"></script>

@@ -14,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $hd=Header::where('eid','=',1)->first();
-        view()->share(['p'=>$hd]);
-        $ft=Footer::all()->first();
-        view()->share(['foot'=>$ft]);
+    //
     }
 
     /**

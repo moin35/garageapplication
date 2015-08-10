@@ -200,9 +200,8 @@ public function changepasspost($eid){
 //Header Function Start
 public function headerget($eid){
     if(Auth::check()){
-        $head=Header::where('eid','=',$eid)->first();
-        $footer=Footer::where('eid','=',$eid)->first();
-        return view('header.addheader')->with('header',$head)->with('foot',$footer);
+        $head=User::where('eid','=',Auth::user()->eid)->first();
+        return view('header.addheader')->with('header',$head);
     } else {return 'not logged in !';}
 }
     
@@ -226,7 +225,7 @@ public function headerpost($eid){
                     $destinationPath ='images/adminimage/';
                     Input::file('image')->move($destinationPath,$fname);
                    $final=$fname;
-                   $up = Header::where('eid','=',$eid)->
+                   $up = User::where('eid','=',$eid)->
             update(['company_logo'=>$final]);
                }   
 
@@ -245,7 +244,7 @@ if(Input::hasFile('fev')){
                     $destinationPath ='images/adminimage/';
                     Input::file('fev')->move($destinationPath,$fname);
                    $fev=$fname;
-                   $up = Header::where('eid','=',$eid)->
+                   $up = User::where('eid','=',$eid)->
             update(['fevicon'=>$fev]);
                }   
 
@@ -256,12 +255,12 @@ if(Input::hasFile('fev')){
     }
 
   
-       $up = Header::where('eid','=',$eid)->
-            update(['company_name'=>Input::get('company_name')]);
-    $up = Footer::where('eid','=',$eid)->
-            update(['company_name'=>Input::get('company_name'),
-               'year'=>Input::get('year'),
-                'link'=>Input::get('link')]);
+       $up = User::where('eid','=',$eid)->
+            update(['company_name'=>Input::get('company_name')
+                    ,'year'=>Input::get('year'),
+                'link'=>Input::get('link')
+              ]);
+    
     Session::flash('head',1);
     return Redirect::to('header/'.$eid);}
     else{return 'not logged in!';}
@@ -315,6 +314,14 @@ public function regget(){
     $nn->img=$final;
     $nn->gender=$gender;
     $nn->save();
+
+    $pp=new Header;
+    $pp->eid=$eid;
+    $pp->save();
+
+    $ff=new Footer;
+    $ff->eid=$eid;
+    $ff->save();
     Session::flash('s',1);
     return Redirect::to('/');
     }

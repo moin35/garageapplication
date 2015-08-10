@@ -18,7 +18,7 @@ Add Your Company Information
 	</div>
 </div>
 <!--END TITLE & BREADCRUMB PAGE-->
-<div class="page-content col-lg-6">
+<div class="page-content col-lg-10">
 	<div class="panel panel-green">
 		<div class="panel-heading">
 			Company Information (Header section)
@@ -34,13 +34,13 @@ Add Your Company Information
 			{!! Form::open(['files'=>'true' ]) !!}
 			<div class="form-body pal">
 				<div class="form-group has-success has-feedback">
-					@if(\App\Header::where('eid','=',1)->pluck('company_name')=='')
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('company_name')=='')
 					<div class="input-icon right">
 						<i class="fa fa-user"></i>      
 						{!!Form::text('company_name',$header->company_name,['class'=>'form-control','placeholder'=>'Add your Company name','required'])!!}
 					</div>
 					@endif
-					@if(\App\Header::where('eid','=',1)->pluck('company_name')!='')
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('company_name')!='')
 					<div class="input-icon right">
 						<i class="fa fa-user"></i>      
 						{!!Form::text('company_name',$header->company_name,['class'=>'form-control','placeholder'=>'Add your Company name','required'])!!}
@@ -50,11 +50,11 @@ Add Your Company Information
 				<div class="form-group">
 					<div class="input-icon right">                                                            
 						<i class="fa fa-lock"></i>
-						@if(\App\Header::where('eid','=',1)->pluck('company_logo')=='')
+						@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('company_logo')=='')
 						<img src="{{URL::to('/')}}/images/adminimage/noimg.jpg" alt="Select an Image" class="center-block img-circle img-responsive" width="70" height ="80"/>
 						<h5>Select Your Company logo:</h5>{!!Form::file('image','',['class'=>'form-control','placeholder'=>'Select an Image','required'])!!}
 						@endif
-						@if(\App\Header::where('eid','=',1)->pluck('company_logo')!='')
+						@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('company_logo')!='')
 						<img src="{{URL::to('/')}}/images/adminimage/{{$header->company_logo}}"  class="center-block img-circle img-responsive" width="70" height ="80">
 						
 						<h5>Select Your Company logo:</h5>{!!Form::file('image','',['class'=>'form-control','placeholder'=>'Select an Image','required'])!!}
@@ -66,16 +66,45 @@ Add Your Company Information
 				<div class="form-group">
 					<div class="input-icon right">                                                            
 						<i class="fa fa-lock"></i>
-						@if(\App\Header::where('eid','=',1)->pluck('fevicon')=='')
+						@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('fevicon')=='')
 						<img src="{{URL::to('/')}}/images/adminimage/noimg.jpg" alt="Select an Image" class="center-block img-circle img-responsive" width="70" height ="80"/>
 						Select Fevicon:{!!Form::file('fev','',['class'=>'form-control','placeholder'=>'Select an Image','required'])!!}
 						@endif
-						@if(\App\Header::where('eid','=',1)->pluck('fevicon')!='')
+						@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('fevicon')!='')
 						<img src="{{URL::to('/')}}/images/adminimage/{{$header->fevicon}}"  class="center-block img-circle img-responsive" width="70" height ="80">
 						Select Fevicon:{!!Form::file('fev','',['class'=>'form-control','placeholder'=>'Select an Image','required'])!!}
 						@endif
 					</div>
 				</div>
+<div class="form-group has-success has-feedback">
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('year')=='')
+					<div class="input-icon right">
+						<i class="fa fa-user"></i>      
+						{!!Form::text('year',$header->year,['class'=>'form-control','placeholder'=>'Add year','required'])!!}
+					</div>
+					@endif
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('year')!='')
+					<div class="input-icon right">
+						<i class="fa fa-user"></i>      
+						{!!Form::text('year',$header->year,['class'=>'form-control','placeholder'=>'Add year','required'])!!}
+					</div>
+					@endif
+				</div>
+<div class="form-group has-success has-feedback">
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('link')=='')
+					<div class="input-icon right">
+						<i class="fa fa-user"></i>      
+						{!!Form::text('link',$header->link,['class'=>'form-control','placeholder'=>'Add your web Address','required'])!!}
+					</div>
+					@endif
+					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('link')!='')
+					<div class="input-icon right">
+						<i class="fa fa-user"></i>      
+						{!!Form::text('link',$header->link,['class'=>'form-control','placeholder'=>'Add your Web Address','required'])!!}
+					</div>
+					@endif
+				</div>
+
 
 				<div class="form-actions text-right pal">
 					{!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}
@@ -85,77 +114,6 @@ Add Your Company Information
 		</div>
 	</div>
 </div>
-<!--Footer-->
-<div class="page-content col-lg-6">
-	<div class="panel panel-green">
-		<div class="panel-heading">
-			Company Information (Footer section)
-			@if(Session::get('s'))
-			<h2 style="color:Yellow;">Information Added successfully !!</h2>
-			@endif
-			@if(Session::get('em'))
-			<h2 style="color:white;">you already used this email !!</h2>
-			@endif
-
-		</div>
-		<div class="panel-body pan">
-			{!! Form::open(['files'=>'true' ]) !!}
-			<div class="form-body pal">
-				<div class="form-group has-success has-feedback">
-					@if(\App\Footer::where('eid','=',1)->pluck('company_name')=='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('company_name',$foot->company_name,['class'=>'form-control','placeholder'=>'Add your Company name','required'])!!}
-					</div>
-					@endif
-					@if(\App\Footer::where('eid','=',1)->pluck('company_name')!='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('company_name',$foot->company_name,['class'=>'form-control','placeholder'=>'Add your Company name','required'])!!}
-					</div>
-					@endif
-				</div>
-				
-				<div class="form-group has-success has-feedback">
-					@if(\App\Footer::where('eid','=',1)->pluck('year')=='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('year',$foot->year,['class'=>'form-control','placeholder'=>'Add year','required'])!!}
-					</div>
-					@endif
-					@if(\App\Footer::where('eid','=',1)->pluck('year')!='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('year',$foot->year,['class'=>'form-control','placeholder'=>'Add year','required'])!!}
-					</div>
-					@endif
-				</div>
-				<div class="form-group has-success has-feedback">
-					@if(\App\Footer::where('eid','=',1)->pluck('link')=='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('link',$foot->link,['class'=>'form-control','placeholder'=>'Add your web Address','required'])!!}
-					</div>
-					@endif
-					@if(\App\Footer::where('eid','=',1)->pluck('link')!='')
-					<div class="input-icon right">
-						<i class="fa fa-user"></i>      
-						{!!Form::text('link',$foot->link,['class'=>'form-control','placeholder'=>'Add your Web Address','required'])!!}
-					</div>
-					@endif
-				</div>
-
-				
-
-				<div class="form-actions text-right pal">
-					{!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}
-				</div>
-				{!!Form::close()!!}
-			</div>
-		</div>
-	</div>
-</div>
-
 
 
 @stop
