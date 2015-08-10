@@ -78,7 +78,7 @@ Public function addmodelpost(){
       $year=Input::get('year');
       $brand=Input::get('brand_name');
       
-      $check=CarModel::where('car_model_name','=',$model)->count();
+      $check=CarModel::where('year','=',$year)->where('brand_name','=',$brand)->count();
          if($check>0){
                   Session::flash('car',1);
                   return Redirect::to('addmodel');

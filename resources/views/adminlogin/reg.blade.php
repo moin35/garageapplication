@@ -22,7 +22,7 @@
 <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/zabuto_calendar.min.css">
 <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/pace.css">
 <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/jquery.news-ticker.css">
-<link rel="shortcut icon" href="{{URL::to('/')}}/images/adminimage/{{$p->fevicon}}">
+
 </head>
 <body>
 <div>
@@ -118,10 +118,7 @@ Registration form
            </div>
        </div>
        <!--BEGIN FOOTER-->
-       <div id="footer" style="color:red;" align="right">
-        <div class="copyright" >
-            <a href="{{$foot->link}}" >{{$foot->year}} © {{$foot->company_name}}</a></div>
-        </div>
+
         <!--END FOOTER-->
     </div>
     <!--END PAGE WRAPPER-->
