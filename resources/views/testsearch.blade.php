@@ -21,15 +21,39 @@ View Ticket
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    <h1>OK</h1>
+    
       <!-- Modal content-->
-      <div class="modal-content">
+      <div class="modal-content" style="width:100%">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+           <div class="row">
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></a></div>   
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/9.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/10.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/11.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/12.jpg" alt="" class="img-responsive"/></a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/13.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/14.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/15.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/16.jpg" alt="" class="img-responsive"/></a></div>
+        
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -55,7 +79,7 @@ View Ticket
                 {!! Form::open(['id'=>'demoForm','class'=>'demoForm']) !!}
                 <div class="col-md-3">
                     <div class="form-group">
-                       <select name="year" size="15" >
+                       <select name="year" id="year" size="15" >
                             <option>Select Year</option>
 
                             @foreach($gentkyear as $r=>$t)
@@ -66,7 +90,7 @@ View Ticket
                 </div>
                 <div class="col-md-3">
                 <div class="form-group">  
-                   <select name="brand_name"  size="15"  onchange='this.form.submit()'>
+                   <select name="brand_name" id="brand_name" size="15"  onchange='this.form.submit()'>
                      <option>Select Brand</option>
                             @foreach($gentkbrand as $b=>$d)
                             <option value="{{$b}}">{{$d}}</option>
@@ -94,7 +118,17 @@ View Ticket
             </div>
     </div>
 </div>
-
+<script>
+function displayVals() {
+  var singleValues = $( "#year" ).val();
+  var multipleValues = $( "#brand_name" ).val() || [];
+  $( "p" ).html( "<b>Single:</b> " + singleValues +
+    " <b>Multiple:</b> " + multipleValues.join( ", " ) );
+}
+ 
+$( "select" ).change( displayVals );
+displayVals();
+</script>
 @stop
 
 
