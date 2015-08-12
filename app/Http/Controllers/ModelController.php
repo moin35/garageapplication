@@ -12,6 +12,7 @@ use App\Footer;
 use App\Year;
 use App\Brand;
 use App\CarModel;
+use App\Diagnosis;
 use Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -33,6 +34,8 @@ class ModelController extends Controller
    }
    Public function addticketpost($eid){
    	if(Auth::check()){
+
+        
    		$year=Input::get('year');
    		$brand=Input::get('brand_name');
    		
@@ -78,7 +81,10 @@ Public function addmodelpost(){
       $year=Input::get('year');
       $brand=Input::get('brand_name');
       
-      $check=CarModel::where('year','=',$year)->where('brand_name','=',$brand)->count();
+      $check=CarModel::where('year','=',$year)
+      ->where('brand_name','=',$brand)
+      ->where('car_model_name','=',$model)->count();
+      //return $check;
          if($check>0){
                   Session::flash('car',1);
                   return Redirect::to('addmodel');
@@ -98,7 +104,7 @@ Public function addmodelpost(){
 
 //Add CarModel & Ticket Information Function End
 //View Ticket Generate Function Start
-Public function tktgenerateget(){
+/*Public function tktgenerateget(){
    if(Auth::check()){
       $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
@@ -110,12 +116,21 @@ Public function tktgenerateget(){
       ->with('gentkbrand',$genticket1)
       ->with('gentkmodel',$genticket2);
    }else {return view('/');}
-}
-//View Ticket Generate Function End
+}*/
+
 Public function tk1get(){
    if(Auth::check()){
+      $year=Input::get('year');
+      $brand=Input::get('brand_name');
+     
       $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
+      $modal2=Diagnosis::all();
+
+      $check1=CarModel::where('year','=',$year)
+      ->where('brand_name','=',$brand)
+      ->pluck('car_model_name');
+
       $check=CarModel::where('year','=',$genticket)
       ->where('brand_name','=',$genticket1)
       ->lists('car_model_name','car_model_name');
@@ -123,7 +138,11 @@ Public function tk1get(){
       return view('testsearch')
       ->with('gentkyear',$genticket)
       ->with('gentkbrand',$genticket1)
-      ->with('gentkmodel',$check);
+      ->with('gentkmodel',$check)
+      ->with('showy',$year)
+        ->with('showb',$brand)
+        ->with('dnos',$modal2)
+        ->with('showmodelname',$check1);
       
    }else {return view('/');}
 }
@@ -131,29 +150,39 @@ Public function tk1post(){
    if(Auth::check()){
    
       $year=Input::get('year');
-
       $brand=Input::get('brand_name');
-     
+      
       if($year!=''&& $brand!='' ){
      
           $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
-      
+      $modal2=Diagnosis::all();
+
+      $check1=CarModel::where('year','=',$year)
+      ->where('brand_name','=',$brand)
+      ->pluck('car_model_name');
+
       $check=CarModel::where('year','=',$year)
       ->where('brand_name','=',$brand)
       ->lists('car_model_name','car_model_name');
-        return view('testsearch')->with('gentkmodel',$check)
+        return view('testsearch')
+        ->with('gentkmodel',$check)
         ->with('gentkyear',$genticket)
-      ->with('gentkbrand',$genticket1);
-       return $check;
+        ->with('gentkbrand',$genticket1)
+        ->with('showy',$year)
+        ->with('showb',$brand)
+        ->with('dnos',$modal2)
+        ->with('showmodelname',$check1);
         }
          Session::flash('showmsg',1);
-         Return Redirect::to('tk1');
-      
-
-      
+         Return Redirect::to('tk1');   
    }else {return view('/');}
 }
+//View Ticket Generate Function End
+//MODAL Second ONE Function Start Here
+
+//MODAL Second ONE Function End Here
+
 
 
 }

@@ -18,57 +18,17 @@ View Ticket
                     </div>
                 </div>
                 <!--END TITLE & BREADCRUMB PAGE-->
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content" style="width:100%">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-           <div class="row">
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></a></div>   
-            </div>
-            <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/9.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/10.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/11.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/12.jpg" alt="" class="img-responsive"/></a></div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/13.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/14.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/15.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/16.jpg" alt="" class="img-responsive"/></a></div>
-        
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
 
 <div class="page-content">
     <div class="panel panel-green">
         <div class="panel-heading">
            Search Car Model Information According to Year
-          </span>
+           <div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp;{{$showmodelname}}</span>
+            </div>
+            
             </div>
             
         </div>
@@ -115,9 +75,8 @@ View Ticket
 
                 </div>
             </div>
-            </div>
-    </div>
-</div>
+
+
 <script>
 function displayVals() {
   var singleValues = $( "#year" ).val();
@@ -129,6 +88,103 @@ function displayVals() {
 $( "select" ).change( displayVals );
 displayVals();
 </script>
+            </div>
+    </div>
+</div>
+  <!-- Modal First Step Start-->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+              <div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div>
+          </h4>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal1"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></a></div>   
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/9.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/10.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/11.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/12.jpg" alt="" class="img-responsive"/></a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/13.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/14.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/15.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/16.jpg" alt="" class="img-responsive"/></a></div>
+        
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal First Step End-->
+<!-- Modal Second One Step Start-->
+<br><br>
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog" style="width:600px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div></h4>
+        </div>
+        <div class="modal-body">
+     
+                
+                
+           
+                 @foreach($dnos as $d)
+                    <a href="" >{{$d->adjustments}}</a></br>
+                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
+                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
+                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
+                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
+                    <a href="" >{{$d->check_outs}}</a></br>
+                    <a href="" >{{$d->comments_wo_prices}}</a></br>
+                    <a href="" >{{$d->diagnostic_charges}}</a></br>
+                    <a href="" >{{$d->mileage_services}}</a></br>
+                    <a href="" >{{$d->road_services_towing}}</a></br>
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One Step End-->
+
 @stop
 
 

@@ -46,8 +46,11 @@ Route::get('addmodel','ModelController@addmodelget');
 Route::post('addmodel','ModelController@addmodelpost');
 //Add CarModel Route End
 //Route Generate Ticket Start
-Route::get('tktgenerate','ModelController@tktgenerateget');
-//Route Generate Ticket End
-
+//Route::get('tktgenerate','ModelController@tktgenerateget');
 Route::get('tk1','ModelController@tk1get');
 Route::post('tk1','ModelController@tk1post');
+//Route Generate Ticket End
+
+//Route second one modal start TEST
+//Route::post('diagnosis',['as'=>'dnosis','uses'=>'ModelController@diagnosisget']);
+//Route second one modal End
