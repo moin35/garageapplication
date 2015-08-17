@@ -40,8 +40,15 @@ if(Auth::check()){
 
     if(Input::hasFile('image')){
       $extension = Input::file('image')->getClientOriginalExtension();
-               if($extension=='png'||$extension=='jpg'||$extension=='jpeg'||$extension=='bmp'||
-                  $extension=='PNG'||$extension=='jpg'||$extension=='JPEG'||$extension=='BMP'){
+               if($extension=='png'
+                ||$extension=='jpg'
+                ||$extension=='jpeg'
+                ||$extension=='bmp'
+                ||$extension=='PNG'
+                ||$extension=='jpg'
+                ||$extension=='JPEG'
+                ||$extension=='BMP'
+                ||$extension=='gif'){
                    $date=date('dmyhsu');
                     $fname=$date.'.'.$extension;
                     $destinationPath = 'images/adminimage/';
@@ -218,7 +225,8 @@ public function headerpost($eid){
                 ||$extension=='PNG'
                 ||$extension=='jpg'
                 ||$extension=='JPEG'
-                ||$extension=='BMP')
+                ||$extension=='BMP'
+                ||$extension=='gif')
                {
                    $date=date('dmyhsu');
                     $fname=$date.'.'.$extension;
@@ -289,8 +297,14 @@ public function regget(){
 
     if(Input::hasFile('image')){
       $extension = Input::file('image')->getClientOriginalExtension();
-               if($extension=='png'||$extension=='jpg'||$extension=='jpeg'||$extension=='bmp'||
-                  $extension=='PNG'||$extension=='jpg'||$extension=='JPEG'||$extension=='BMP'){
+               if($extension=='png'
+                ||$extension=='jpg'
+                ||$extension=='jpeg'
+                ||$extension=='bmp'
+                ||$extension=='PNG'
+                ||$extension=='jpg'
+                ||$extension=='JPEG'
+                ||$extension=='BMP'){
                    $date=date('dmyhsu');
                     $fname=$date.'.'.$extension;
                     $destinationPath = 'images/adminimage/';

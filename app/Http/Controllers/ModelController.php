@@ -13,6 +13,7 @@ use App\Year;
 use App\Brand;
 use App\CarModel;
 use App\Diagnosis;
+use App\ComputerElectronics;
 use Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -126,7 +127,7 @@ Public function tk1get(){
       $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
       $modal2=Diagnosis::all();
-
+      $modal3=ComputerElectronics::all();
       $check1=CarModel::where('year','=',$year)
       ->where('brand_name','=',$brand)
       ->pluck('car_model_name');
@@ -140,9 +141,10 @@ Public function tk1get(){
       ->with('gentkbrand',$genticket1)
       ->with('gentkmodel',$check)
       ->with('showy',$year)
-        ->with('showb',$brand)
-        ->with('dnos',$modal2)
-        ->with('showmodelname',$check1);
+      ->with('showb',$brand)
+      ->with('dnos',$modal2)
+      ->with('showmodelname',$check1)
+      ->with('electronics',$modal3);
       
    }else {return view('/');}
 }
@@ -157,6 +159,7 @@ Public function tk1post(){
           $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
       $modal2=Diagnosis::all();
+      $modal3=ComputerElectronics::all();
 
       $check1=CarModel::where('year','=',$year)
       ->where('brand_name','=',$brand)
@@ -172,7 +175,8 @@ Public function tk1post(){
         ->with('showy',$year)
         ->with('showb',$brand)
         ->with('dnos',$modal2)
-        ->with('showmodelname',$check1);
+        ->with('showmodelname',$check1)
+        ->with('electronics',$modal3);
         }
          Session::flash('showmsg',1);
          Return Redirect::to('tk1');   

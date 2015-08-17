@@ -5,7 +5,7 @@
 
 @section('body')
 
-<h1>OK</h1>       
+      
 
          <!--BEGIN TITLE & BREADCRUMB PAGE-->
          <div class="content"><div class="row">

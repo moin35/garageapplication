@@ -21,8 +21,10 @@ View Ticket
 
 <div class="page-content">
     <div class="panel panel-green">
+
         <div class="panel-heading">
-           Search Car Model Information According to Year
+        
+           Vehicle Solution
            <div>
                 <span>{{$showy}}&nbsp;</span>
                 <span>&nbsp;{{$showb}}</span>
@@ -35,7 +37,7 @@ View Ticket
             <div class="panel-body pan">
             <div class="form-body pal">
 
-                <div class="row">
+                <div class="row" >
                 {!! Form::open(['id'=>'demoForm','class'=>'demoForm']) !!}
                 <div class="col-md-3">
                     <div class="form-group">
@@ -48,6 +50,7 @@ View Ticket
                         </select>
                     </div>
                 </div>
+                
                 <div class="col-md-3">
                 <div class="form-group">  
                    <select name="brand_name" id="brand_name" size="15"  onchange='this.form.submit()'>
@@ -58,6 +61,7 @@ View Ticket
                     </select>
                 </div>
                 </div>
+
                 <noscript>{!!Form::submit('Submit',['class'=>'','type'=>'submit','value'=>'Submit'])!!}</noscript>
                 
                 {!!Form::close()!!}
@@ -110,12 +114,12 @@ displayVals();
         <div class="modal-body">
            <div class="row">
                 <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal1"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></button></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></a></div>   
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal2"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal3"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal4"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></button></a></div>   
             </div>
             <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal5"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></button></a></div>
                 <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
                 <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
                 <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
@@ -158,10 +162,6 @@ displayVals();
             </div></h4>
         </div>
         <div class="modal-body">
-     
-                
-                
-           
                  @foreach($dnos as $d)
                     <a href="" >{{$d->adjustments}}</a></br>
                     <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
@@ -184,6 +184,159 @@ displayVals();
     </div>
   </div>
 <!-- Modal Second One Step End-->
+<!-- Modal Second One+One Step Start-->
+<br><br>
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog" style="width:600px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div></h4>
+        </div>
+        <div class="modal-body">
+                 @foreach($electronics as $d)
+                    <a href="" >{{$d->air_suspension_system}}</a></br>
+                    <a href="" >{{$d->control_modules}}</a></br>
+                    <a href="" >{{$d->fuel_injection}}</a></br>
+                    <a href="" >{{$d->idle_speed}}</a></br>
+                    <a href="" >{{$d->ignition}}</a></br>
+                    <a href="" >{{$d->relays}}</a></br>
+                    <a href="" >{{$d->ride_control}}</a></br>
+                    <a href="" >{{$d->sensors}}</a></br>
+                    <a href="" >{{$d->solenoids}}</a></br>
+                    <a href="" >{{$d->switches}}</a></br>
+                    <a href="" >{{$d->vacuum}}</a></br>
+                    <a href="" >{{$d->test_adjust}}</a></br>
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One+One Step End-->
+<!-- Modal Second One+Two Step Start-->
+<br><br>
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog" style="width:600px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div></h4>
+        </div>
+        <div class="modal-body">
+                 @foreach($dnos as $d)
+                    <a href="" >{{$d->adjustments}}</a></br>
+                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
+                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
+                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
+                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
+                    <a href="" >{{$d->check_outs}}</a></br>
+                    <a href="" >{{$d->comments_wo_prices}}</a></br>
+                    <a href="" >{{$d->diagnostic_charges}}</a></br>
+                    <a href="" >{{$d->mileage_services}}</a></br>
+                    <a href="" >{{$d->road_services_towing}}</a></br>
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One+Two Step End-->
+<!-- Modal Second One+Three Step Start-->
+<br><br>
+  <div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog" style="width:600px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div></h4>
+        </div>
+        <div class="modal-body">
+                 @foreach($dnos as $d)
+                    <a href="" >{{$d->adjustments}}</a></br>
+                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
+                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
+                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
+                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
+                    <a href="" >{{$d->check_outs}}</a></br>
+                    <a href="" >{{$d->comments_wo_prices}}</a></br>
+                    <a href="" >{{$d->diagnostic_charges}}</a></br>
+                    <a href="" >{{$d->mileage_services}}</a></br>
+                    <a href="" >{{$d->road_services_towing}}</a></br>
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One+Three Step End-->
+<!-- Modal Second One+Three Step Start-->
+<br><br>
+  <div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog" style="width:600px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><div>
+                <span>{{$showy}}&nbsp;</span>
+                <span>&nbsp;{{$showb}}</span>
+                <span>&nbsp;&nbsp; {{$showmodelname}}</span>
+            </div></h4>
+        </div>
+        <div class="modal-body">
+                 @foreach($dnos as $d)
+                    <a href="" >{{$d->adjustments}}</a></br>
+                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
+                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
+                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
+                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
+                    <a href="" >{{$d->check_outs}}</a></br>
+                    <a href="" >{{$d->comments_wo_prices}}</a></br>
+                    <a href="" >{{$d->diagnostic_charges}}</a></br>
+                    <a href="" >{{$d->mileage_services}}</a></br>
+                    <a href="" >{{$d->road_services_towing}}</a></br>
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One+Three Step End-->
 
 @stop
 

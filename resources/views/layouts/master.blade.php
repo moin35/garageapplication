@@ -24,9 +24,20 @@
     <link type="text/css" rel="stylesheet" href="{{URL::to('/')}}/styles/jquery.news-ticker.css">
     <link rel="shortcut icon" href="{{URL::to('/')}}/images/adminimage/{{Auth::user()->fevicon}}">
 
-
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+  .ui-progressbar {
+    position: relative;
+  }
+  .progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+  </style>
   </head>
 <body>
    <div>
@@ -77,8 +88,8 @@
 
     
         <!--END TOPBAR-->
-        <div id="wrapper">
-        <br>
+        <div id="wrapper" style="margin-top: 1px;">
+ 
             <!--BEGIN SIDEBAR MENU-->
             <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
                 data-position="right" class="navbar-default navbar-static-side">
@@ -99,17 +110,18 @@
                     </i><span class="menu-title">Add Company Information</span></a>
                        
                     </li>
-                    <li><a href="{{URL::to('addmodel')}}"><i class="fa fa-send-o fa-fw">
-                        <div class="icon-bg bg-green"></div>
-                    </i><span class="menu-title">Add Model Information</span></a>
-                       
-                    </li>
                     <li><a href="{{URL::to('ticket/'.Auth::user()->eid)}}"><i class="fa fa-database fa-fw">
                         <div class="icon-bg bg-red"></div>
                     </i><span class="menu-title">Add Car Info</span></a>
                       
                     </li>
-                    <li><a href="Forms.html"><i class="fa fa-edit fa-fw">
+                    <li><a href="{{URL::to('addmodel')}}"><i class="fa fa-send-o fa-fw">
+                        <div class="icon-bg bg-green"></div>
+                    </i><span class="menu-title">Add Model Information</span></a>
+                       
+                    </li>
+                    
+                    <!--<li><a href="Forms.html"><i class="fa fa-edit fa-fw">
                         <div class="icon-bg bg-violet"></div>
                     </i><span class="menu-title">Forms</span></a>
                       
@@ -151,7 +163,7 @@
                     </li>
                     <li><a href="Animation.html"><i class="fa fa-slack fa-fw">
                         <div class="icon-bg bg-green"></div>
-                    </i><span class="menu-title">Animations</span></a></li>
+                    </i><span class="menu-title">Animations</span></a></li>-->
                 </ul>
             </div>
         </nav>

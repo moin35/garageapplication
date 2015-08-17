@@ -33,6 +33,7 @@ Add Your Company Information
 		<div class="panel-body pan">
 			{!! Form::open(['files'=>'true' ]) !!}
 			<div class="form-body pal">
+			<h3>Header Information</h3>
 				<div class="form-group has-success has-feedback">
 					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('company_name')=='')
 					<div class="input-icon right">
@@ -61,8 +62,6 @@ Add Your Company Information
 						@endif
 					</div>
 				</div>
-				
-
 				<div class="form-group">
 					<div class="input-icon right">                                                            
 						<i class="fa fa-lock"></i>
@@ -76,7 +75,8 @@ Add Your Company Information
 						@endif
 					</div>
 				</div>
-<div class="form-group has-success has-feedback">
+				<h3>Footer Information</h3>
+				<div class="form-group has-success has-feedback">
 					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('year')=='')
 					<div class="input-icon right">
 						<i class="fa fa-user"></i>      
@@ -90,7 +90,7 @@ Add Your Company Information
 					</div>
 					@endif
 				</div>
-<div class="form-group has-success has-feedback">
+				<div class="form-group has-success has-feedback">
 					@if(\App\User::where('eid','=',Auth::user()->eid)->pluck('link')=='')
 					<div class="input-icon right">
 						<i class="fa fa-user"></i>      
@@ -104,7 +104,7 @@ Add Your Company Information
 					</div>
 					@endif
 				</div>
-
+				
 
 				<div class="form-actions text-right pal">
 					{!!Form::submit('Submit',['class'=>'btn btn-primary form-control'])!!}
@@ -114,8 +114,6 @@ Add Your Company Information
 		</div>
 	</div>
 </div>
-
-
 @stop
 
 
