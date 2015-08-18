@@ -19,26 +19,44 @@ View Ticket
                 </div>
                 <!--END TITLE & BREADCRUMB PAGE-->
 
-<div class="page-content">
-    <div class="panel panel-green">
 
+ <!--BEGIN CONTENT-->
+                <div class="page-content">
+        <div class="panel panel-green">
+         <p>Ticket</p>
         <div class="panel-heading">
-        
-           Vehicle Solution
-           <div>
-                <span>{{$showy}}&nbsp;</span>
+
+         <span>{{$showy}}&nbsp;</span>
                 <span>&nbsp;{{$showb}}</span>
                 <span>&nbsp;&nbsp;{{$showmodelname}}</span>
-            </div>
-            
-            </div>
-            
+       
         </div>
-            <div class="panel-body pan">
-            <div class="form-body pal">
+   
+               
+            
+        
 
-                <div class="row" >
-                {!! Form::open(['id'=>'demoForm','class'=>'demoForm']) !!}
+                    <div id="tab-general">
+                        <div class="row mbl">
+                            <div class="col-lg-12">
+                                
+                                            <div class="col-md-12">
+                                                <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                                                </div>
+                                            </div>
+                            </div>
+                            <div class="col-lg-12">
+                            <div class="col-lg-12">
+                            <ul id="generalTab" class="nav nav-tabs responsive">
+                            <li class="active"><a href="#alert-tab" data-toggle="tab">Car</a></li>
+                            <li><a href="#note-tab" data-toggle="tab">Ticket</a></li>
+                           
+                        </ul>
+                        <div id="generalTabContent" class="tab-content responsive">
+                            <div id="alert-tab" class="tab-pane fade in active">
+                                <div class="row">
+                                  
+                                   {!! Form::open(['id'=>'demoForm','class'=>'demoForm']) !!}
                 <div class="col-md-3">
                     <div class="form-group">
                        <select name="year" id="year" size="15" >
@@ -76,26 +94,67 @@ View Ticket
                 </div>
                 </div>
 
-
+                                </div>
+                            </div>
+                            <div id="note-tab" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                            <p>{{$clientview->name}}</p>
+                                            <p>{{$clientview->car_num}}</p>
+                                            <p>{{$clientview->phone}}</p>
+                                            <p>{{$clientview->address}}</p>
+                                    </div>
+                                    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Date registered</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>David R</td>
+        <td class="center">2012/01/01</td>
+        <td class="center">Member</td>
+        <td class="center">
+            <span class="label-success label label-default">Active</span>
+        </td>
+        <td class="center">
+            <a class="btn btn-success" href="#">
+                <i class="glyphicon glyphicon-zoom-in icon-white"></i>
+                View
+            </a>
+            <a class="btn btn-info" href="#">
+                <i class="glyphicon glyphicon-edit icon-white"></i>
+                Edit
+            </a>
+            <a class="btn btn-danger" href="#">
+                <i class="glyphicon glyphicon-trash icon-white"></i>
+                Delete
+            </a>
+        </td>
+    </tr>
+</tbody>
+    </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                            
+                            
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </div>
                 </div>
-            </div>
+                <!--END CONTENT-->
 
-
-<script>
-function displayVals() {
-  var singleValues = $( "#year" ).val();
-  var multipleValues = $( "#brand_name" ).val() || [];
-  $( "p" ).html( "<b>Single:</b> " + singleValues +
-    " <b>Multiple:</b> " + multipleValues.join( ", " ) );
-}
- 
-$( "select" ).change( displayVals );
-displayVals();
-</script>
-            </div>
-    </div>
-</div>
-  <!-- Modal First Step Start-->
+ <!-- Modal First Step Start-->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -113,28 +172,28 @@ displayVals();
         </div>
         <div class="modal-body">
            <div class="row">
-                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal1"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></button></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal2"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></button></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal3"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></button></a></div>
-                <div class=" col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal4"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></button></a></div>   
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button class="btn btn-success btn-lg btn-block"  data-toggle="modal" data-target="#myModal1"><img src="images/garage/1.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button class="btn btn-success btn-lg btn-block"  data-toggle="modal" data-target="#myModal2"><img src="images/garage/2.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button class="btn btn-success btn-lg btn-block"  data-toggle="modal" data-target="#myModal3"><img src="images/garage/3.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class=" col-md-3"><a href="#" class="thumbnail"><button class="btn btn-success btn-lg btn-block"  data-toggle="modal" data-target="#myModal4"><img src="images/garage/4.jpg" alt="" class="img-responsive"/></button></a></div>   
             </div>
             <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><button data-toggle="modal" data-target="#myModal5"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></button></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><button class="btn btn-success btn-lg btn-block"   data-toggle="modal" data-target="#myModal5"><img src="images/garage/5.jpg" alt="" class="img-responsive"/></button></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/6.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/7.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/8.jpg" alt="" class="img-responsive"/></a></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/9.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/10.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/11.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/12.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/9.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/10.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/11.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/12.jpg" alt="" class="img-responsive"/></a></div>
             </div>
             <div class="row">
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/13.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/14.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/15.jpg" alt="" class="img-responsive"/></a></div>
-                <div class="col-md-3"><a href="#" class="thumbnail"><img src="images/garage/16.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/13.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/14.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/15.jpg" alt="" class="img-responsive"/></a></div>
+                <div class="col-md-3"><a href="#" class="thumbnail"><img class="btn btn-success btn-lg btn-block" src="images/garage/16.jpg" alt="" class="img-responsive"/></a></div>
         
             </div>
         </div>
@@ -239,18 +298,17 @@ displayVals();
             </div></h4>
         </div>
         <div class="modal-body">
-                 @foreach($dnos as $d)
-                    <a href="" >{{$d->adjustments}}</a></br>
-                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
-                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
-                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
-                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
-                    <a href="" >{{$d->check_outs}}</a></br>
-                    <a href="" >{{$d->comments_wo_prices}}</a></br>
-                    <a href="" >{{$d->diagnostic_charges}}</a></br>
-                    <a href="" >{{$d->mileage_services}}</a></br>
-                    <a href="" >{{$d->road_services_towing}}</a></br>
-                
+                 @foreach($exhaust as $d)
+                    <a href="" >{{$d->air_mgmt_system}}</a></br>
+                    <a href="" >{{$d->computer_controls}}</a></br>
+                    <a href="" >{{$d->egr_system}}</a></br>
+                    <a href="" >{{$d->evaporative}}</a></br>
+                    <a href="" >{{$d->exhaust}}</a></br>
+                    <a href="" >{{$d->fuel_controllers}}</a></br>
+                    <a href="" >{{$d->sensors}}</a></br>
+                    <a href="" >{{$d->test_adjust}}</a></br>
+                    <a href="" >{{$d->quick_job}}</a></br>
+                    
                @endforeach
         </div>
         <div class="modal-footer">
@@ -277,17 +335,18 @@ displayVals();
             </div></h4>
         </div>
         <div class="modal-body">
-                 @foreach($dnos as $d)
-                    <a href="" >{{$d->adjustments}}</a></br>
-                    <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
-                    <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
-                    <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
-                    <a href="" >{{$d->car_symptoms_vibrations_leaks}}</a></br>
-                    <a href="" >{{$d->check_outs}}</a></br>
-                    <a href="" >{{$d->comments_wo_prices}}</a></br>
+                 @foreach($heat as $d)
+                    <a href="" >{{$d->accumulator}}</a></br>
+                    <a href="" >{{$d->belts_hoses}}</a></br>
+                    <a href="" >{{$d->cab_sleepers}}</a></br>
+                    <a href="" >{{$d->compressor}}</a></br>
+                    <a href="" >{{$d->controllers_heater}}</a></br>
+                    <a href="" >{{$d->evaporator_condensor}}</a></br>
+                    <a href="" >{{$d->heater_blower}}</a></br>
                     <a href="" >{{$d->diagnostic_charges}}</a></br>
-                    <a href="" >{{$d->mileage_services}}</a></br>
-                    <a href="" >{{$d->road_services_towing}}</a></br>
+                    <a href="" >{{$d->switchs_relays}}</a></br>
+                    <a href="" >{{$d->test_adjust}}</a></br>
+                    <a href="" >{{$d->quick_job}}</a></br>
                 
                @endforeach
         </div>
@@ -337,6 +396,7 @@ displayVals();
     </div>
   </div>
 <!-- Modal Second One+Three Step End-->
+
 
 @stop
 

@@ -4334,7 +4334,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 }
 .close:hover, .close:focus {
 	color: #000;
-	text-decoration: none;
+	text-decoration: none;modal-dialog
 	cursor: pointer;
 	opacity: .5;
 	filter: alpha(opacity=50)
@@ -4346,7 +4346,7 @@ button.close {
 	border: 0;
 	-webkit-appearance: none
 }
-.modal-open {
+.modal-dialog-open {
 	overflow: hidden
 }
 .modal {

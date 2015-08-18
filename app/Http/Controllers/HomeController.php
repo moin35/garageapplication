@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Header;
 use App\Footer;
+use App\Client;
 use Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -111,8 +112,30 @@ public function postlogin(){
 public function index(){
     if(Auth::check())
     {
-       
+        
         return view('dashboard.welcome');
+    }
+    else
+    {
+        return view('/');
+    }
+}
+public function indexp(){
+    if(Auth::check())
+    {
+       $name=Input::get('name');
+       $carnum=Input::get('car_num');
+       $phone=Input::get('phone');
+       $address=Input::get('address');
+
+       $client=new Client;
+       $client->name=$name;
+       $client->car_num=$carnum;
+       $client->phone=$phone;
+       $client->address=$address;
+      
+       $client->save();
+        return Redirect::to('tk1');
     }
     else
     {

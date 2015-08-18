@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@getlogin');
 Route::post('/', 'HomeController@postlogin');
 
 Route::get('dashboard','HomeController@index');
+Route::post('dashboard','HomeController@indexp');
 //Super admin reg  Route Start
 Route::get('adminreg/{eid}','HomeController@adminregget');
 Route::post('adminreg/{eid}','HomeController@adminregpost');
