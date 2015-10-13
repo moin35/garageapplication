@@ -17,6 +17,8 @@ use App\ComputerElectronics;
 use App\ExhaustEmission;
 use App\HeatingAC;
 use App\Client;
+use App\Engine;
+use App\AdjustJob;
 use Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -126,7 +128,7 @@ Public function tk1get(){
    if(Auth::check()){
       $year=Input::get('year');
       $brand=Input::get('brand_name');
-     
+      //$carjob=Input::get('car_model_name');
       $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
       $modal2=Diagnosis::all();
@@ -143,6 +145,9 @@ Public function tk1get(){
       ->lists('car_model_name','car_model_name');
 
       $vclient=Client::OrderBy('id', 'DESC')->first();
+      $engine=Engine::all();
+
+      $adjust=AdjustJob::all();
 
       return view('testsearch')
       ->with('gentkyear',$genticket)
@@ -155,7 +160,9 @@ Public function tk1get(){
       ->with('electronics',$modal3)
       ->with('exhaust',$modal4)
       ->with('heat',$modal5)
-      ->with('clientview',$vclient);
+      ->with('clientview',$vclient)
+      ->with('eng',$engine)
+      ->with('adjust',$adjust);
       
    }else {return view('/');}
 }
@@ -164,10 +171,12 @@ Public function tk1post(){
    
       $year=Input::get('year');
       $brand=Input::get('brand_name');
+      //$carjob=Input::get('car_model_name');
+
       
       if($year!=''&& $brand!='' ){
      
-          $genticket=Year::all()->lists('year','year');
+      $genticket=Year::all()->lists('year','year');
       $genticket1=Brand::all()->lists('brand_name','brand_name');
       $modal2=Diagnosis::all();
       $modal3=ComputerElectronics::all();
@@ -181,7 +190,11 @@ Public function tk1post(){
       $check=CarModel::where('year','=',$year)
       ->where('brand_name','=',$brand)
       ->lists('car_model_name','car_model_name');
-$vclient=Client::OrderBy('id', 'DESC')->first();
+
+      $vclient=Client::OrderBy('id', 'DESC')->first();
+
+      $engine=Engine::all();
+      $adjust=AdjustJob::all();
 
         return view('testsearch')
         ->with('gentkmodel',$check)
@@ -194,16 +207,27 @@ $vclient=Client::OrderBy('id', 'DESC')->first();
         ->with('electronics',$modal3)
         ->with('exhaust',$modal4)
         ->with('heat',$modal5)
-        ->with('clientview',$vclient);
+        ->with('clientview',$vclient)
+        ->with('eng',$engine)
+        ->with('adjust',$adjust);
         }
          Session::flash('showmsg',1);
-         Return Redirect::to('tk1');   
+         Return Redirect::to('dashboard');   
    }else {return view('/');}
 }
 //View Ticket Generate Function End
-//MODAL Second ONE Function Start Here
-
-//MODAL Second ONE Function End Here
+//Function For add joblist & engine
+Public function jobengineget(){
+   if(Auth::check()){
+         //$engine=Engine::all();
+         $model=Year::all()->lists('year','year');
+         $model1=Brand::all()->lists('brand_name','brand_name');
+         return view('addingdata.engine')
+         ->with('mod1',$model1)
+         ->with('mod',$model);
+   }else {return view('/');}
+}
+//End Here
 
 
 

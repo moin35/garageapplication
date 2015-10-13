@@ -4,9 +4,6 @@
 @stop
 
 @section('body')
-
-      
-
          <!--BEGIN TITLE & BREADCRUMB PAGE-->
          <div class="content"><div class="row">
           <div class="col-md-12 text-center">
@@ -113,11 +110,7 @@
                         </div>
                     </div>
                     </div></div></div>
-
-
-
-
-  <div class="modal fade" id="myModal" role="dialog">
+ <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->

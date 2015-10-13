@@ -142,6 +142,7 @@ public function indexp(){
         return view('/');
     }
 }
+
 //Dashboard End here
 //Admin Profile View start
 public function adminprofileget($eid){

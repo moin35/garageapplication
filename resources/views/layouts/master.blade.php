@@ -121,10 +121,10 @@
                        
                     </li>
                     
-                    <!--<li><a href="Forms.html"><i class="fa fa-edit fa-fw">
+                    <li><a href="{{URL::to('addjobengine')}}"><i class="fa fa-edit fa-fw">
                         <div class="icon-bg bg-violet"></div>
-                    </i><span class="menu-title">Forms</span></a>
-                      
+                    </i><span class="menu-title">Add engine & JOb list</span></a>
+                    <!--  
                     </li>
                     <li><a href="Tables.html"><i class="fa fa-th-list fa-fw">
                         <div class="icon-bg bg-blue"></div>

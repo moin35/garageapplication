@@ -31,11 +31,6 @@ View Ticket
                 <span>&nbsp;&nbsp;{{$showmodelname}}</span>
        
         </div>
-   
-               
-            
-        
-
                     <div id="tab-general">
                         <div class="row mbl">
                             <div class="col-lg-12">
@@ -60,7 +55,7 @@ View Ticket
                 <div class="col-md-3">
                     <div class="form-group">
                        <select name="year" id="year" size="15" >
-                            <option>Select Year</option>
+                            <option disabled>Select Year</option>
 
                             @foreach($gentkyear as $r=>$t)
                             <option value="{{$r}}">{{$t}}</option>
@@ -72,7 +67,7 @@ View Ticket
                 <div class="col-md-3">
                 <div class="form-group">  
                    <select name="brand_name" id="brand_name" size="15"  onchange='this.form.submit()'>
-                     <option>Select Brand</option>
+                     <option disabled>Select Brand</option>
                             @foreach($gentkbrand as $b=>$d)
                             <option value="{{$b}}">{{$d}}</option>
                             @endforeach
@@ -86,7 +81,7 @@ View Ticket
                 <div class="col-md-3">
                 <div class="form-group">  
                    <select  size="15" data-toggle="modal" data-target="#myModal" multiple>
-                     <option>All Series</option>
+                     <option disabled>All Series</option>
                             @foreach($gentkmodel as $v=>$s)
                             <option value="{{$v}}">{{$s}}</option>
                             @endforeach
@@ -205,6 +200,9 @@ View Ticket
     </div>
   </div>
 <!-- Modal First Step End-->
+
+
+
 <!-- Modal Second One Step Start-->
 <br><br>
   <div class="modal fade" id="myModal1" role="dialog">
@@ -222,7 +220,7 @@ View Ticket
         </div>
         <div class="modal-body">
                  @foreach($dnos as $d)
-                    <a href="" >{{$d->adjustments}}</a></br>
+                    <a href="" data-toggle="modal" data-target="#adjust">{{$d->adjustments}}</a></br>
                     <a href="" >{{$d->car_symptoms_engine_performance}}</a></br>
                     <a href="" >{{$d->car_symptoms_starting_lights}}</a></br>
                     <a href="" >{{$d->car_symptoms_noises_comforts}}</a></br>
@@ -242,6 +240,61 @@ View Ticket
       
     </div>
   </div>
+  <!-- Modal Second One+one adjustment Step Start-->
+<br><br>
+  <div class="modal fade" id="adjust" role="dialog">
+    <div class="modal-dialog" style="width:300px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          OK
+        </div>
+        <div class="modal-body">
+                 @foreach($eng as $d)
+                    <a href="" data-toggle="modal" data-target="#joblist">{{$d->engine_model}}</a></br>
+                    
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+  <br><br>
+  <div class="modal fade" id="joblist" role="dialog">
+    <div class="modal-dialog" style="width:400px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width:100%">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Job list
+        </div>
+        <div class="modal-body">
+                 @foreach($adjust as $d)
+                    <a href="" >{{$d->joblist}}</a></br>
+                    
+                
+               @endforeach
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- Modal Second One+one adjustment Step End-->
+
+
 <!-- Modal Second One Step End-->
 <!-- Modal Second One+One Step Start-->
 <br><br>

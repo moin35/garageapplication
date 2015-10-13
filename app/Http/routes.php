@@ -55,3 +55,16 @@ Route::post('tk1','ModelController@tk1post');
 //Route second one modal start TEST
 //Route::post('diagnosis',['as'=>'dnosis','uses'=>'ModelController@diagnosisget']);
 //Route second one modal End
+//Route For add joblist & engine 
+Route::get('addjobengine','ModelController@jobengineget');
+Route::post('addjobengine','ModelController@jobenginepost');
+
+Route::get('api/dropdown', function(){
+    
+    $user = Input::get('option');
+    $items = \App\CarModel::where('year', '=', $user)->orWhere('brand_name', '=', $user)
+    ->lists('car_model_name', 'car_model_name');
+    return Response::make($items);
+
+});
+//End
